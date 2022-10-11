@@ -1,7 +1,7 @@
-import { Heading } from 'components/Heading';
+import { Slider } from 'components/Slide';
 
 function Home() {
-  return <Heading>Example</Heading>;
+  return <Slider></Slider>;
 }
 
 export default Home;

@@ -1,11 +1,11 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { Heading, HeadingProps } from '.';
+import { Paragraph, ParagraphProps } from '.';
 
 export default {
-  title: 'Heading',
-  component: Heading,
+  title: 'Paragraph',
+  component: Paragraph,
   args: {
-    children: 'The text is black',
+    children: 'Text of paragraph',
   },
   argTypes: {
     children: { type: 'string' },
@@ -17,8 +17,8 @@ export default {
   },
 } as Meta;
 
-export const Light: Story<HeadingProps> = (args) => <Heading {...args} />;
-export const Dark: Story<HeadingProps> = (args) => <Heading {...args} />;
+export const Light: Story<ParagraphProps> = (args) => <Paragraph {...args} />;
+export const Dark: Story<ParagraphProps> = (args) => <Paragraph {...args} />;
 
 Light.parameters = {
   backgrounds: {
@@ -27,6 +27,6 @@ Light.parameters = {
 };
 
 Dark.args = {
-  children: 'The text is white',
+  children: 'O texto está claro',
   colorDark: false,
 };
