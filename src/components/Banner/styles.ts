@@ -1,15 +1,19 @@
 import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
-  margin-top: 5rem;
+${({ theme }) => css`
+  margin-top:${theme.spacings.xxsmall};
   display: flex;
   align-items: center;
   height: 100%;
   overflow: hidden;
   position: relative;
+`}
 `;
+
 export const List = styled.div`
   display: flex;
+
 `;
 
 export const Slide = styled.div`
@@ -45,8 +49,7 @@ export const Description = styled.div`
    position: absolute;
    bottom: 0; 
    padding: ${theme.spacings.mediumSmall};
-   color: ${theme.colors.white} ;
-
+   
    > h3 {
     position: relative;
     top: ${theme.spacings.tiny};
@@ -54,31 +57,31 @@ export const Description = styled.div`
   `}
 `;
 
-export const GoLeft = styled.button`
+export const GoLeft = styled.div`
   ${({ theme }) => css`
-    color: ${theme.colors.white};
-    cursor: grab;
-    background: transparent;
-    width: 4rem;
-    height: 4rem;
-    border: none;
     left: ${theme.spacings.xsmall};
     position: absolute;
     z-index: 3;
   `}
 `;
 
-export const GoRight = styled.button`
+export const GoRight = styled.div`
   ${({ theme }) => css`
-    color: ${theme.colors.white};
-    cursor: grab;
-    background: transparent;
-    width: 4rem;
-    height: 4rem;
-    border: none;
     right: ${theme.spacings.xsmall};
     position: absolute;
     z-index: 3;
+  `}
+`;
+export const Button = styled.button`
+  ${({ theme }) => css`    
+    background: transparent;
+    color: ${theme.colors.white};
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    z-index: 3;
+    
   `}
 `;
 
@@ -89,16 +92,4 @@ export const Control = styled.div`
     justify-content: center;
     align-items: center;
 
-`;
-
-export const Button = styled.button`
-  ${({ theme }) => css`    
-    color: ${theme.colors.white};
-    background: transparent;
-    width: 2rem;
-    height: 2rem;
-    border: none;
-    z-index: 3;
-    cursor: pointer;
-  `}
 `;

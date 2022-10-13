@@ -10,7 +10,7 @@ describe('<Heading />', () => {
     const heading = screen.getByRole('heading', { name: 'text' });
     expect(heading).toHaveStyle({
       color: theme.colors.primary,
-      'font-size': theme.font.sizes.xhuge,
+      'font-size': theme.font.sizes.huge,
       'text-transform': 'none',
     });
   });
@@ -25,16 +25,16 @@ describe('<Heading />', () => {
     const { rerender } = renderTheme(<Heading size="small">text</Heading>);
     const heading = screen.getByRole('heading', { name: 'text' });
     expect(heading).toHaveStyle({
-      'font-size': theme.font.sizes.medium,
+      'font-size': theme.font.sizes.small,
     });
     rerender(
       <ThemeProvider theme={theme}>
-        <Heading size="big">text</Heading>
+        <Heading size="huge">text</Heading>
       </ThemeProvider>,
     );
 
     expect(screen.getByRole('heading', { name: 'text' })).toHaveStyle({
-      'font-size': theme.font.sizes.xlarge,
+      'font-size': theme.font.sizes.huge,
     });
 
     rerender(
@@ -44,7 +44,7 @@ describe('<Heading />', () => {
     );
 
     expect(screen.getByRole('heading', { name: 'text' })).toHaveStyle({
-      'font-size': theme.font.sizes.large,
+      'font-size': theme.font.sizes.medium,
     });
   });
 

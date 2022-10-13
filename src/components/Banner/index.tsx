@@ -1,11 +1,24 @@
 import * as Styled from './styles';
-import { ChevronLeft } from '@styled-icons/boxicons-solid/ChevronLeft';
-import { ChevronRight } from '@styled-icons/boxicons-solid/ChevronRight';
 import { Circle } from '@styled-icons/boxicons-solid/Circle';
 import React, { useEffect, useRef } from 'react';
-import slides from './mock';
+import { IconButton } from '../IconButton';
+import { SlideImage } from '../SlideImage';
+import { Heading } from '../Heading';
+import { Paragraph } from '../Paragraph';
 
-export const Slider = () => {
+export type BannerProps = {
+  slides: [
+    {
+      order: number;
+      src: string;
+      alt: string;
+      title: string;
+      description: string;
+    },
+  ];
+};
+
+export const Banner = ({ slides }: BannerProps) => {
   const slideList = React.createRef<HTMLDivElement>();
   const slideItem = useRef<(HTMLDivElement | null)[]>([]);
   const controlItem = useRef<(HTMLButtonElement | null)[]>([]);
@@ -140,22 +153,27 @@ export const Slider = () => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <Styled.GoLeft
-          onClick={() => {
-            handlePreviousSlide();
-          }}
-        >
-          <ChevronLeft />
+        <Styled.GoLeft>
+          <IconButton
+            colorDark={false}
+            icon={'chevronLeft'}
+            size={'xlarge'}
+            onClick={() => {
+              handlePreviousSlide();
+            }}
+          />
         </Styled.GoLeft>
 
-        <Styled.GoRight
-          onClick={() => {
-            handleNextSlide();
-          }}
-        >
-          <ChevronRight />
+        <Styled.GoRight>
+          <IconButton
+            colorDark={false}
+            icon={'chevromRight'}
+            size={'xlarge'}
+            onClick={() => {
+              handleNextSlide();
+            }}
+          />
         </Styled.GoRight>
-
         <Styled.List ref={slideList}>
           {slides.map((slide) => (
             <Styled.Slide
@@ -175,13 +193,19 @@ export const Slider = () => {
               }}
               onTouchEnd={handleOnTouchEnd}
             >
-              <Styled.Image src={slide.src} alt="Zelda" />
+              <SlideImage src={slide.src} alt={slide.alt} />
               <Styled.Description>
-                <h3>
-                  {slide.order}
+                <Heading
+                  as={'h3'}
+                  colorDark={false}
+                  size={'small'}
+                  uppercase={true}
+                >
                   {slide.title}
-                </h3>
-                <p>{slide.destription}</p>
+                </Heading>
+                <Paragraph colorDark={false} size={'small'}>
+                  {slide.description}
+                </Paragraph>
               </Styled.Description>
             </Styled.Slide>
           ))}

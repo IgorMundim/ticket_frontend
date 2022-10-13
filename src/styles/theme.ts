@@ -51,5 +51,6 @@ export const theme = {
     hero: '6.4rem',
     xhero: '7.2rem',
     xxhero: '8.0rem',
+    big: '30rem',
   },
 } as const;

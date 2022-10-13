@@ -4,7 +4,21 @@ export type HeadingProps = {
   children: React.ReactNode;
   colorDark?: boolean;
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-  size?: 'small' | 'medium' | 'big' | 'huge';
+  size?:
+    | 'xxsmall'
+    | 'xsmall'
+    | 'small'
+    | 'normal'
+    | 'medium'
+    | 'large'
+    | 'xlarge'
+    | 'xxlarge'
+    | 'huge'
+    | 'xhuge'
+    | 'xxhuge'
+    | 'hero'
+    | 'xhero'
+    | 'xxhero';
   uppercase?: boolean;
 };
 

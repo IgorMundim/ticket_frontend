@@ -10,7 +10,7 @@ exports[`<Meny /> > should not render links 1`] = `
 
 .c7 {
   color: #0A1128;
-  font-size: 2.4rem;
+  font-size: 1.6rem;
   text-transform: uppercase;
 }
 
@@ -235,7 +235,7 @@ exports[`<Meny /> > should render Logo and Main Menu Nav 1`] = `
 
 .c7 {
   color: #0A1128;
-  font-size: 2.4rem;
+  font-size: 1.6rem;
   text-transform: uppercase;
 }
 
