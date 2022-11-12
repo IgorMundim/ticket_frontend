@@ -5,23 +5,25 @@ import { IconButton } from '../IconButton';
 import { SlideImage } from '../SlideImage';
 import { Heading } from '../Heading';
 import { Paragraph } from '../Paragraph';
+import Link from 'next/link';
 
+export type SlideProps = {
+  order: number;
+  src: string;
+  alt: string;
+  title: string;
+  description: string;
+  link: string;
+};
 export type BannerProps = {
-  slides: [
-    {
-      order: number;
-      src: string;
-      alt: string;
-      title: string;
-      description: string;
-    },
-  ];
+  banners: SlideProps[];
 };
 
-export const Banner = ({ slides }: BannerProps) => {
+export const Banner = ({ banners }: BannerProps) => {
   const slideList = React.createRef<HTMLDivElement>();
   const slideItem = useRef<(HTMLDivElement | null)[]>([]);
   const controlItem = useRef<(HTMLButtonElement | null)[]>([]);
+
   const state = {
     startingPoint: 0,
     savedPoint: 0,
@@ -32,9 +34,8 @@ export const Banner = ({ slides }: BannerProps) => {
   let slideInterval;
 
   useEffect(() => {
-    setVisibleSlide(1);
     createSlideClones();
-    handleAutoPlay();
+    setVisibleSlide(0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -46,7 +47,7 @@ export const Banner = ({ slides }: BannerProps) => {
 
   function createSlideClones() {
     const firstSlide = slideItem.current[0].cloneNode(true);
-    const lastSlide = slideItem.current[slides.length - 1].cloneNode(true);
+    const lastSlide = slideItem.current[banners.length - 1].cloneNode(true);
     slideList.current.append(firstSlide);
     slideList.current.prepend(lastSlide);
   }
@@ -60,28 +61,39 @@ export const Banner = ({ slides }: BannerProps) => {
   };
 
   const activeControlButton = (index) => {
-    slides.map(
+    banners.map(
       (slideIndex) =>
-        (controlItem.current[slideIndex.order].style.color = '#fff'),
+        (controlItem.current[slideIndex.order].style.color = '#c9c9cb'),
     );
     controlItem.current[index].style.color = '#000';
   };
 
   const setVisibleSlide = (index: number) => {
-    if (index > slides.length) index = 1;
+    try {
+      slideList.current.style.transition = 'transform 0.3s';
+      if (index > banners.length) {
+        index = 1;
+        slideList.current.style.transition = 'transform 0s';
+      }
 
-    if (index <= 0) index = slides.length;
-
-    slideList.current.style.transition = 'transform .5s';
-    const slideWidth = slideItem.current[0].clientWidth;
-    const windowWidth = document.body.clientWidth;
-    const margin = (windowWidth - slideWidth) / 2;
-    activeControlButton(index - 1);
-    transleteSlide({ position: margin - index * slideWidth });
-    state.currentSlide = index;
+      if (index <= 0) {
+        index = banners.length;
+        slideList.current.style.transition = 'transform 0s';
+      }
+      const slideWidth = slideItem.current[0].clientWidth;
+      const windowWidth = document.body.clientWidth;
+      const margin = (windowWidth - slideWidth) / 2;
+      activeControlButton(index - 1);
+      transleteSlide({ position: margin - index * slideWidth });
+      state.currentSlide = index;
+    } catch (e) {
+      clearInterval(slideInterval);
+    }
   };
 
   const handleMouseDown = (event, index: number) => {
+    event.preventDefault();
+
     state.currentSlide = index;
     state.startingPoint = event.clientX;
     state.currentPoint = state.startingPoint - state.savedPoint;
@@ -111,7 +123,7 @@ export const Banner = ({ slides }: BannerProps) => {
   const handleAutoPlay = () => {
     slideInterval = setInterval(function () {
       setVisibleSlide(state.currentSlide + 1);
-    }, 3000);
+    }, 2500);
   };
 
   const handleMouseEnter = () => {
@@ -149,6 +161,7 @@ export const Banner = ({ slides }: BannerProps) => {
   };
   return (
     <>
+      {handleAutoPlay()}
       <Styled.Wrapper
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -175,7 +188,7 @@ export const Banner = ({ slides }: BannerProps) => {
           />
         </Styled.GoRight>
         <Styled.List ref={slideList}>
-          {slides.map((slide) => (
+          {banners.map((slide) => (
             <Styled.Slide
               onDragStart={(event) => {
                 event.preventDefault();
@@ -184,35 +197,39 @@ export const Banner = ({ slides }: BannerProps) => {
                 slideItem.current.push(ref);
               }}
               key={slide.order}
+              onMouseUp={handleMouseUp}
               onMouseDown={function (event) {
                 handleMouseDown(event, slide.order);
               }}
-              onMouseUp={handleMouseUp}
               onTouchStart={function (event) {
                 handleOnTouchStart(event, slide.order);
               }}
               onTouchEnd={handleOnTouchEnd}
             >
               <SlideImage src={slide.src} alt={slide.alt} />
-              <Styled.Description>
-                <Heading
-                  as={'h3'}
-                  colorDark={false}
-                  size={'small'}
-                  uppercase={true}
-                >
-                  {slide.title}
-                </Heading>
-                <Paragraph colorDark={false} size={'small'}>
-                  {slide.description}
-                </Paragraph>
-              </Styled.Description>
+              <Link href="/">
+                <a target={'_self'}>
+                  <Styled.Description>
+                    <Heading
+                      as={'h3'}
+                      colorDark={false}
+                      size={'xxlarge'}
+                      uppercase={true}
+                    >
+                      {slide.title}
+                    </Heading>
+                    <Paragraph colorDark={false} size={'small'}>
+                      {slide.description}
+                    </Paragraph>
+                  </Styled.Description>
+                </a>
+              </Link>
             </Styled.Slide>
           ))}
         </Styled.List>
       </Styled.Wrapper>
       <Styled.Control>
-        {slides.map((slide) => (
+        {banners.map((slide) => (
           <Styled.Button
             ref={(ref) => {
               controlItem.current.push(ref);
@@ -221,6 +238,8 @@ export const Banner = ({ slides }: BannerProps) => {
             onClick={() => {
               setVisibleSlide(slide.order + 1);
             }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
             <Circle />
           </Styled.Button>

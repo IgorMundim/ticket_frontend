@@ -3,7 +3,7 @@ export default [
     order: 0,
     src: 'https://www.heteroclito.fr/modules/Jssor/img/home/02.jpg',
     alt: 'Text',
-    title: 'What is Lorem Ipsum',
+    title: 'There is no one who loves pain itself',
     description: 'There is no one who loves pain itself',
   },
   {
@@ -17,7 +17,7 @@ export default [
     order: 2,
     src: 'http://wowslider.com/sliders/demo-18/data1/images/hongkong1081704.jpg',
     alt: 'Zelda',
-    title: 'What is Lorem Ipsum',
+    title: 'There is no one who loves',
     description: 'There is no one who loves pain itself',
   },
   {

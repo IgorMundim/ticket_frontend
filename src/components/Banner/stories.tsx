@@ -6,7 +6,10 @@ export default {
   title: 'Banner',
   component: Banner,
   args: {
-    slides: slides,
+    banners: slides,
+  },
+  parameters: {
+    layout: 'fullscreen',
   },
 } as Meta;
 

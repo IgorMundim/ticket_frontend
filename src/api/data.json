@@ -1,0 +1,129 @@
+{
+  "page": [
+    {
+      "title": "Home",
+      "slug": "home",
+      "banners": [
+        {
+          "id": 1,
+          "order": 0,
+          "title": "Banner",
+          "src": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
+          "alt": "Banner Alt",
+          "description": "description",
+          "link": "/admin"
+        },
+        {
+          "id": 2,
+          "order": 1,
+          "title": "Banner",
+          "src": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
+          "alt": "Banner02",
+          "description": "description",
+          "link": "/admin"
+        },
+        {
+          "id": 3,
+          "order": 2,
+          "title": "Banner",
+          "src": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
+          "alt": "Banner03",
+          "description": "description",
+          "link": "link"
+        }
+      ],
+      "menuLink": [
+        {
+          "id": 1,
+          "order": 1,
+          "text": "link",
+          "link": "user/login",
+          "newTab": false
+        }
+      ],
+      "logoLink": {
+        "id": 1,
+        "text": "About",
+        "link": " ",
+        "srcImg": "https://www.tailorbrands.com/wp-content/uploads/2021/06/Brand-marks-1.jpg"
+      },
+      "footer": "My Footer"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Example",
+      "slug": "/categories/show",
+      "image_url": "https://i.pinimg.com/736x/33/b8/69/33b869f90619e81763dbf1fccc896d8d--lion-logo-modern-logo.jpg",
+      "alt_text": "show"
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "name": "Show",
+      "date_end": "2022-11-30T19:41:02-03:00",
+      "address": {
+        "city": "Imperatriz",
+        "uf": "MG"
+      },
+      "image": {
+        "image_url": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F184375039%2F474927372937%2F1%2Foriginal.20211111-155142?w=512&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C236%2C4724%2C2362&s=ff52e826c551abbd9a90a39cccc5c303",
+        "alt_text": "show"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Lorem ipsum dolor sit amet, consectetur adipiscing eit",
+      "date_end": "2022-11-30T19:41:02-03:00",
+      "address": {
+        "city": "São Paulo",
+        "uf": "SP"
+      },
+      "image": {
+        "image_url": "https://www.gl-events.com/sites/default/files/styles/max_2600x2600/public/2019-03/gl_events_venues_riocentro_jeuness_congress.jpg?itok=iBTJdcEr",
+        "alt_text": "show"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Excepteur sint occaecat cupidatat non proident",
+      "date_end": "2022-11-30T19:41:02-03:00",
+      "address": {
+        "city": "Imperatriz",
+        "uf": "MG"
+      },
+      "image": {
+        "image_url": "https://media-exp2.licdn.com/dms/image/C561BAQE-51J-8KkMZg/company-background_10000/0/1548357920228?e=2147483647&v=beta&t=wrOVYN8qrGon9jILrMQv78FsyOV4IMQxr_3UjYtUREI",
+        "alt_text": "show"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "date_end": "2022-11-30T19:41:02-03:00",
+      "address": {
+        "city": "São Paulo",
+        "uf": "SP"
+      },
+      "image": {
+        "image_url": "https://www.awesomeeventsph.co/uploads/1/2/6/2/12627440/277174162-5075814062457995-806995460318098700-n.jpg",
+        "alt_text": "show"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Lorem ipsum dolor sit amet, consectetur adipiscing lit",
+      "date_end": "2022-11-30T19:41:02-03:00",
+      "address": {
+        "city": "São Paulo",
+        "uf": "SP"
+      },
+      "image": {
+        "image_url": "https://www.awesomeeventsph.co/uploads/1/2/6/2/12627440/277174162-5075814062457995-806995460318098700-n.jpg",
+        "alt_text": "show"
+      }
+    }
+  ]
+}

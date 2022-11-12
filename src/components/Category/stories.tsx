@@ -1,4 +1,4 @@
-import { Category, CategoryProps } from '.';
+import { Category, CategoriesProps } from '.';
 import categoryMock from './mock';
 import { Meta, Story } from '@storybook/react/types-6-0';
 
@@ -10,6 +10,6 @@ export default {
   },
 } as Meta;
 
-export const Tamplate: Story<CategoryProps> = (args) => {
+export const Tamplate: Story<CategoriesProps> = (args) => {
   return <Category {...args}></Category>;
 };

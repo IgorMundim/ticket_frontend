@@ -1,14 +1,14 @@
 import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
-${({ theme }) => css`
-  margin-top:${theme.spacings.xxsmall};
+
   display: flex;
   align-items: center;
   height: 100%;
   overflow: hidden;
   position: relative;
-`}
+  margin-top: 0.5rem;
+
 `;
 
 export const List = styled.div`
@@ -18,7 +18,6 @@ export const List = styled.div`
 
 export const Slide = styled.div`
 ${({ theme }) => css` 
-  cursor: grab;
   position: relative;
   width: 90vw;
   flex-shrink: 0;
@@ -46,13 +45,24 @@ ${({ theme }) => css`
 export const Description = styled.div`
   ${({ theme }) => css`
    /* background: linear-gradient(to top, ${theme.colors.primary}, transparent); */
-   position: absolute;
-   bottom: 0; 
-   padding: ${theme.spacings.mediumSmall};
+    position: absolute;
+    width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
    
    > h3 {
-    position: relative;
-    top: ${theme.spacings.tiny};
+    text-align: center;
+    &:hover {
+      color: #105b72c2;
+    }
+   }
+   > p {
+    text-align: center;
+    &:hover {
+      color: #105b72c2;
+    }
    }
   `}
 `;

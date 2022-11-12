@@ -4,26 +4,24 @@ import { MenuLink } from '.';
 
 describe('<MenuLink />', () => {
   it('should render a link', () => {
-    renderTheme(<MenuLink link="http://localhost">Children</MenuLink>);
-    expect(screen.getByRole('link', { name: 'Children' })).toHaveAttribute(
+    renderTheme(<MenuLink text={'text'} link="http://localhost"></MenuLink>);
+    expect(screen.getByRole('link', { name: 'text' })).toHaveAttribute(
       'target',
       '_self',
     );
   });
   it('should render a internal link', () => {
-    renderTheme(<MenuLink link="/localhost">Children</MenuLink>);
-    expect(screen.getByRole('link', { name: 'Children' })).toHaveAttribute(
+    renderTheme(<MenuLink text={'text'} link="/localhost"></MenuLink>);
+    expect(screen.getByRole('link', { name: 'text' })).toHaveAttribute(
       'target',
       '_self',
     );
   });
   it('should render open in a new tab', () => {
     renderTheme(
-      <MenuLink link="http://localhost" newTab={true}>
-        Children
-      </MenuLink>,
+      <MenuLink text={'text'} link="http://localhost" newTab={true}></MenuLink>,
     );
-    expect(screen.getByRole('link', { name: 'Children' })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'text' })).toHaveAttribute(
       'target',
       '_blank',
     );
@@ -31,11 +29,9 @@ describe('<MenuLink />', () => {
 
   it('should render open in a new tab', () => {
     renderTheme(
-      <MenuLink link="http://localhost" newTab={true}>
-        Children
-      </MenuLink>,
+      <MenuLink text={'text'} link="http://localhost" newTab={true}></MenuLink>,
     );
-    expect(screen.getByRole('link', { name: 'Children' })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'text' })).toHaveAttribute(
       'target',
       '_blank',
     );

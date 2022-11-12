@@ -6,7 +6,8 @@ ${({ theme }) => css`
   height: 30rem;
   border: ${theme.spacings.xxtiny} solid ${theme.colors.white};
   border-radius: ${theme.spacings.tiny};
-  box-shadow: #070707 0px 12px 12px;
+  margin-bottom: 1rem;
+  box-shadow: ${theme.colors.background} 0px 6px 9px;
 
   @media ${theme.media.lteMedium}{
     height: 15rem;
