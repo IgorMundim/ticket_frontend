@@ -32,10 +32,7 @@ export const EventItem = ({
   return (
     <Styled.Container>
       <Link href={'/event/' + id}>
-        <Styled.Image
-          src={`${process.env.NEXT_PUBLIC_API_URL}` + image.image_url}
-          alt={image.alt_text}
-        ></Styled.Image>
+        <Styled.Image src={image.image_url} alt={image.alt_text}></Styled.Image>
       </Link>
 
       <Styled.Detail>

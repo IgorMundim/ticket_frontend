@@ -57,10 +57,13 @@ ${({ theme }) => css`
   cursor: pointer;
   font-size: 2rem;
   color: ${theme.colors.buttonColor};
-  background-color: ${theme.colors.buttonBackground};
+  background-color: ${theme.colors.secondary};
   height: 5rem;
   width: 30rem;
   border-radius: 2.5rem;
+  &:hover {
+      filter: brightness(90%);
+    }
   @media ${theme.media.lteMedium}{
     margin-top: 2rem;
     width: 25rem;

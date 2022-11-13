@@ -12,17 +12,14 @@ export type FooterBaseProps = {
 };
 
 export const Footer = ({ footer }: FooterBaseProps) => {
-  console.log(footer.src_img);
   return (
     <Styled.Container>
-      <div>
-        <Styled.Image>
-          <img src={footer.src_img} alt={footer.alt_text} />
-        </Styled.Image>
-        <Facebook2 />
-        <Instagram />
-        <TextComponent>{footer.footerHtml}</TextComponent>
-      </div>
+      <Styled.Image>
+        <img src={footer.src_img} alt={footer.alt_text} />
+      </Styled.Image>
+      <Facebook2 />
+      <Instagram />
+      <TextComponent>{footer.footerHtml}</TextComponent>
     </Styled.Container>
   );
 };

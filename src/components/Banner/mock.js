@@ -1,7 +1,7 @@
 export default [
   {
     order: 0,
-    src: 'https://static.preparaenem.com/2022/08/paisagem-natural-suica.jpg',
+    src: 'src="https://ticket-backend.s3.amazonaws.com/static/covers/2022/11/12/banner/wine4.jpg"',
     alt: 'Text',
     title: 'There is no one who loves pain itself',
     description: 'There is no one who loves pain itself',

@@ -2,7 +2,7 @@
 
 exports[`<SlideItem /> > should render slide item 1`] = `
 .c4 {
-  color: #FFFFFF;
+  color: rgb(250,250,253);
   font-size: 1.2rem;
   text-transform: none;
 }
@@ -10,13 +10,14 @@ exports[`<SlideItem /> > should render slide item 1`] = `
 .c1 {
   width: 100%;
   height: 30rem;
-  border: 0.1rem solid #FFFFFF;
+  border: 0.1rem solid rgb(250,250,253);
   border-radius: 0.4rem;
-  box-shadow: #070707 0px 12px 12px;
+  margin-bottom: 1rem;
+  box-shadow: rgb(52,58,64) 0px 6px 9px;
 }
 
 .c3 {
-  color: #FFFFFF;
+  color: rgb(250,250,253);
   font-size: 1.6rem;
   text-transform: uppercase;
 }

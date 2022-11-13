@@ -1,10 +1,11 @@
 import { GetServerSideProps } from 'next';
 import { serverSideRedirect } from '../../utils/server-side-redirect';
 import { getSession } from 'next-auth/react';
-export default function Subscription() {
-  // const { data: session } = useSession();
+import { pageService } from 'api/service/pages';
+import Subscription, { SubscriptionProps } from 'templates/Subscription';
 
-  return <div>Oi</div>;
+export default function SubscriptionPage({ base }: SubscriptionProps) {
+  return <Subscription base={base} />;
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -13,9 +14,17 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return serverSideRedirect(context);
   }
 
+  const { base } = await pageService.base();
+  if (!base) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       session,
+      base,
     },
   };
 };

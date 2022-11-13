@@ -1,6 +1,7 @@
 import { fetchWrapper } from '../helpers/fetch-wrapper';
 
 export const eventsService = {
+  getEventBycategory,
   categories,
   category,
   events,
@@ -22,7 +23,15 @@ function category(id: string) {
       return data;
     });
 }
-
+function getEventBycategory(id: string) {
+  return fetchWrapper
+    .get(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/v1/events/categories/${id}/events/`,
+    )
+    .then((data) => {
+      return data;
+    });
+}
 function events() {
   return fetchWrapper
     .get(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/events/`)

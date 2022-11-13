@@ -14,7 +14,7 @@ export const Button = ({
   disabled = false,
   onClick,
   icon,
-  color = 'primary',
+  color = 'secondary',
 }: ButtonProps) => {
   const handleClick = () => {
     if (onClick) {

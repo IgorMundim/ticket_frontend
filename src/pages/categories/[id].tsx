@@ -32,7 +32,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const { base } = await pageService.base();
   try {
     category = await eventsService.category(context.params.id as string);
-    events = await eventsService.events();
+    events = await eventsService.getEventBycategory(
+      context.params.id as string,
+    );
   } catch (error) {
     return { notFound: true };
   }

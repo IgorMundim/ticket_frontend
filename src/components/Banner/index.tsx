@@ -3,7 +3,6 @@ import { Circle } from '@styled-icons/boxicons-solid/Circle';
 import React, { useEffect, useRef } from 'react';
 import { IconButton } from '../IconButton';
 import { SlideImage } from '../SlideImage';
-import { Heading } from '../Heading';
 import { Paragraph } from '../Paragraph';
 import Link from 'next/link';
 
@@ -207,17 +206,10 @@ export const Banner = ({ banners }: BannerProps) => {
               onTouchEnd={handleOnTouchEnd}
             >
               <SlideImage src={slide.src} alt={slide.alt} />
-              <Link href="/">
+              <Link href={slide.link}>
                 <a target={'_self'}>
                   <Styled.Description>
-                    <Heading
-                      as={'h3'}
-                      colorDark={false}
-                      size={'xxlarge'}
-                      uppercase={true}
-                    >
-                      {slide.title}
-                    </Heading>
+                    <h3>{slide.title}</h3>
                     <Paragraph colorDark={false} size={'small'}>
                       {slide.description}
                     </Paragraph>

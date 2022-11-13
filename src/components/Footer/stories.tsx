@@ -6,8 +6,10 @@ export default {
   component: Footer,
   args: {
     footer: {
-      footerHtml: '<p><a href="https://google.com">My footer</a></p>',
-      src_img: 'http://127.0.0.1:8000/media/footer/2022/11/10/banner/logo.png',
+      footerHtml:
+        '<p><a href="https://google.com">My footer aaaaaaaaa aaaa aaa</a></p>',
+      src_img:
+        'https://ticket-backend.s3.amazonaws.com/static/footer/2022/11/12/banner/logo.png',
       alt_text: 'text',
     },
   },

@@ -54,14 +54,16 @@ export const Description = styled.div`
    
    > h3 {
     text-align: center;
+    color: ${theme.colors.white};
+    font-size: ${theme.font.sizes.xlarge};
     &:hover {
-      color: #105b72c2;
+      color: ${theme.colors.secondary};
     }
    }
    > p {
     text-align: center;
     &:hover {
-      color: #105b72c2;
+      color: ${theme.colors.secondary};
     }
    }
   `}

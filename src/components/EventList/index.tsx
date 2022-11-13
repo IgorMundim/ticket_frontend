@@ -9,7 +9,7 @@ export const EventList = ({ events }: EventListProp) => {
     <SectionContainer>
       <Styled.Container>
         {events.map((event) => (
-          <EventItem key={event.name} {...event} />
+          <EventItem key={event.id} {...event} />
         ))}
       </Styled.Container>
     </SectionContainer>
